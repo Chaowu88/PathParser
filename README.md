@@ -1,10 +1,4 @@
 # PathParser
-#Flux change no.	0.1	0.109	0.118
-0	0	0	0
-1	0	0	0
-2	0	0	0
-dsdsd
-dsdsds /
-dsd /n
-cx
-bvb
+PathParser is a python-based computational tool for the thermodynamics and robustness analysis of native and designed metabolic pathways. The following functionalities are provided:   
+1 Max-min driving force (MDF) optimization. The Gibbs free energy change of the least favorable reaction will be maximized to evaluate thermodynamic feasibility of the entire pathway.   
+
