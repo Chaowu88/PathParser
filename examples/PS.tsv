@@ -1,0 +1,10 @@
+#Enzyme ID	Reversibility	ΔrG'm (kJ/mol)	Substrates	Products	Substrate Km (mM)	Product Km (mM)	kcat (1/s)	Enzyme MW (kDa)
+RuBisCO	0	-527	RuBP;O2	G3P,PGcl	0.08(0.019,0.105);0.866(0.529,1.153)	;	5.6	70
+PGLP	0	-45.7	PGcl	Gcl,Pi		;		30.4
+GO	0	-88.8	Gcl,O2	Glx,H2O2	;	;		45.8
+AGAT	1	-8.5	Glx,Ala	Gly,Pyr	;	;		42.2
+GLD	1	4.6	Gly,THF,NAD	MTHF,CO2,NADH,NH3	3.05(2.84,6);;	;;;		97
+SHM	1	6.6	MTHF,Gly	Ser,THF	;	;		5
+SGAT	1	-4.2	Ser,Glx	HPyr,Gly	;	;		40.5
+GDH	0	-28.2	HPyr,NADH	Gcr,NAD	;	;		58.2
+GK	0	-13.8	Gcr,ATP	G3P,ADP	0.104;0.206	;		
