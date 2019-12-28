@@ -23,7 +23,7 @@ if __name__ == '__main__':
 
 	parser = argparse.ArgumentParser(description = 'This script does thermodynamic analysis: 1 maximizing the minimal driving force; 2 minimizing the totol enzyme protein cost of a given pathway')
 	parser.add_argument('-o', '--outDir', type = str, required = True, help = 'output directory')
-	parser.add_argument('-r', '--reactionFile', type = str, required = True, help = 'reaction list file, required fields: Enzyme ID, Substrates, Products, Reversibility, ΔrGm and Enzyme MW')
+	parser.add_argument('-r', '--reactionFile', type = str, required = True, help = 'reaction list file, required fields: Enzyme ID, Reversibility, ΔrGm, Substrates, Products, and Enzyme MW')
 	parser.add_argument('-i', '--iniMetabs', type = str, required = False, help = 'metabolites as initial substrates, sep by ",". By default, they will be detected automatically, sometimes they should be set explicitly, e.g. for cylic pathways')
 	parser.add_argument('-f', '--finMetabs', type = str, required = False, help = 'metabolites as end products, sep by ",". By default, they will be detected automatically, sometimes they should be set explicitly, e.g. for cylic pathways')
 	parser.add_argument('-eb', '--exBalMetabs', type = str, required = False, help = 'metabolites excluded from mass balance, sep by ","')
