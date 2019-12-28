@@ -16,7 +16,7 @@ __main1.py__ performs MDF optimization and protein cost estimation with the foll
 >-o, --outDir: output directory   
 -r, --reactionFile: reaction file, required fields: Enzyme ID, Substrates, Products, Reversibility, Δ<sub>r</sub>G'<sup>m</sup> and Enzyme MW. See below as an example   
    
-|#Enzyme ID|Reversibility|ΔrG'm (kJ/mol)|Substrates|Products|Substrate Km (mM)|Product Km (mM)|kcat (1/s)|Enzyme MW (kDa)|
+|#Enzyme ID|Reversibility|Δ<sub>r</sub>G'<sup>m</sup> (kJ/mol)|Substrates|Products|Substrate Km (mM)|Product Km (mM)|kcat (1/s)|Enzyme MW (kDa)|
 |---|---|---|---|---|---|---|---|---|
 |RuBisCO|0|-34.7|RuBP;CO2|2G3P|0.08(0.019,0.105);0.67(0.529,0.85)||11.6(3.5,14.28)|70|
 |PGK|1|18.7|G3P;ATP|BGP;ADP|0.18;0.19|;||41.7|
