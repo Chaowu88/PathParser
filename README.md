@@ -45,7 +45,9 @@ __main2.py__ performs robustness analysis with the following arguments:
 -f, --finMetabs: optional, metabolites as end products, sep by ",". By default, they will be detected automatically, sometimes they should be set explicitly, e.g. for cylic pathways  
 -eb, --exBalMetabs: optional, metabolites excluded from mass balance, sep by ","  
 -eo, --exOptMetabs: optional, metabolites excluded from optimization, sep by ","  
+ 
 __NOTE.__   
+  
 1 It is highly recommended to run this script in a high-performance computer.  
 2 Robustness against enzyme perturbation can be evaluated in both relative and absolute manners, real flux values as well as metabolite concentrations and enzyme concentrations should be provided if the latter.  
     
