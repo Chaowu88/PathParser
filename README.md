@@ -15,6 +15,7 @@ __main1.py__ performs MDF optimization and protein cost estimation with the foll
    
 >-o, --outDir: output directory   
 -r, --reactionFile: reaction file, required fields: Enzyme ID, Substrates, Products, Reversibility, ΔrGm and Enzyme MW. See below as an example   
+   
 |#Enzyme ID|Reversibility|ΔrG'm (kJ/mol)|Substrates|Products|Substrate Km (mM)|Product Km (mM)|kcat (1/s)|Enzyme MW (kDa)|
 |---|---|---|---|---|---|---|---|---|
 |RuBisCO|0|-34.7|RuBP;CO2|2G3P|0.08(0.019,0.105);0.67(0.529,0.85)||11.6(3.5,14.28)|70|
@@ -30,8 +31,7 @@ __main1.py__ performs MDF optimization and protein cost estimation with the foll
 |RPE|1|3.4|X5P|Ru5P||||25|
 |RPI|1|2|R5P|Ru5P||||25
 |PRK|0|-22.7|Ru5P;ATP|RuBP;ADP|0.28(0.27,0.29);0.36(0.09,1.42)|;||43.5|
-
--b, --concBnds: concentration lower and upper bound (mM) for all metabolites, sep by ","   
+>-b, --concBnds: concentration lower and upper bound (mM) for all metabolites, sep by ","   
 -w, --runWhich: which analysis to run, '1' for maximizing the minimal driving force, '2' for minimizing the totol enzyme protein cost, '12' for both   
 -i, --iniMetabs: optional, metabolites as initial substrates, sep by ",". By default, they will be detected automatically, sometimes they should be set explicitly, e.g. for cylic pathways   
 -f, --finMetabs: optional, metabolites as end products, sep by ",". By default, they will be detected automatically, sometimes they should be set explicitly, e.g. for cylic pathways  
