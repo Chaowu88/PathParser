@@ -14,7 +14,7 @@ numpy1.16.1, pandas0.23.4, scipy1.2.1, sympy1.1.1, matplotlib3.0.3, seaborn0.8.1
 __main1.py__ performs MDF optimization and protein cost estimation with the following arguments:
    
 >-o, --outDir: output directory   
--r, --reactionFile: reaction file, required fields: Enzyme ID, Substrates, Products, Reversibility, Δ<sub>r<\sub>G'<sup>m<\sup> and Enzyme MW. See below as an example   
+-r, --reactionFile: reaction file, required fields: Enzyme ID, Substrates, Products, Reversibility, Δ<sub>r</sub>G'<sup>m</sup> and Enzyme MW. See below as an example   
    
 |#Enzyme ID|Reversibility|ΔrG'm (kJ/mol)|Substrates|Products|Substrate Km (mM)|Product Km (mM)|kcat (1/s)|Enzyme MW (kDa)|
 |---|---|---|---|---|---|---|---|---|
