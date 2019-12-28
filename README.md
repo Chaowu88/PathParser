@@ -30,21 +30,21 @@ python way\to\PathParser\main1.py -o way\to\PathParser\example\CBB -r way\to\Pat
 ```
 __main2.py__ performs robustness analysis with the following arguments:
     
->-o, --outDir: output directory  
--r, --reactionFile: reaction file, required fields: Enzyme ID, Substrates, Products, Reversibility, ΔrGm and Enzyme MW. See below as an example  
+>-o, --outDir: see above  
+-r, --reactionFile: reaction file, required fields: Enzyme ID, Substrates, Products, Reversibility, ΔrGm and Enzyme MW. See above as an example  
 -n, --nmodels: number of models in an ensemble  
 -b, --enzymeBnds: lower and upper bound of relative enzyme level, sep by ","  
 -d, --ifDump: whether to dump generated models, "yes" or "no"  
 -p, --nprocess: number of processes to run simultaneously  
--w, --runWhich: which analysis to run, '1' for maximizing the minimal driving force, '2' for minimizing the totol enzyme protein cost, '12' for both  
+-w, --runWhich: which analysis to run, '1' for robustmess index, '2' for probability of system failure, '3' for flux fold change, and any other combination of the numbers     
 -t, --ifReal: whether to use the real value of concentrations, Kms and Keqs, "yes" or "no"  
 -a, --assignFlux: assign flux (mmol/gCDW/h) to some enzyme in the format "enzyme ID:value", then flux distribution of reference state will be calculated, required if --ifReal is "yes"  
 -mc, --metabConcFile: file of metabolite concentrations (mM) in reference state, required if --ifReal is "yes"  
 -ec, --enzConcFile: file of enzyme concentrations (mmol/gCDW) in reference state, required if --ifReal is "yes"  
--i, --iniMetabs: optional, metabolites as initial substrates, sep by ",". By default, they will be detected automatically, sometimes they should be set explicitly, e.g. for cylic pathways  
--f, --finMetabs: optional, metabolites as end products, sep by ",". By default, they will be detected automatically, sometimes they should be set explicitly, e.g. for cylic pathways  
--eb, --exBalMetabs: optional, metabolites excluded from mass balance, sep by ","  
--eo, --exOptMetabs: optional, metabolites excluded from optimization, sep by ","  
+-i, --iniMetabs: optional, see above  
+-f, --finMetabs: optional, see above  
+-eb, --exBalMetabs: optional, see above  
+-eo, --exOptMetabs: optional, see above  
  
 __NOTE.__   
   
