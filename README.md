@@ -13,7 +13,7 @@ numpy1.16.1, pandas0.23.4, scipy1.2.1, sympy1.1.1, matplotlib3.0.3, seaborn0.8.1
 ## Usage
 __main1.py__ performs MDF optimization and protein cost estimation with the following arguments:
    
--o, --outDir: output directory   
+>-o, --outDir: output directory   
 -r, --reactionFile: reaction file, required fields: Enzyme ID, Substrates, Products, Reversibility, ΔrGm and Enzyme MW. See below as an example   
 -b, --concBnds: concentration lower and upper bound (mM) for all metabolites, sep by ","   
 -w, --runWhich: which analysis to run, '1' for maximizing the minimal driving force, '2' for minimizing the totol enzyme protein cost, '12' for both   
