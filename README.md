@@ -31,7 +31,8 @@ __main1.py__ performs MDF optimization and protein cost estimation with the foll
 |RPE|1|3.4|X5P|Ru5P||||25|
 |RPI|1|2|R5P|Ru5P||||25
 |PRK|0|-22.7|Ru5P;ATP|RuBP;ADP|0.28(0.27,0.29);0.36(0.09,1.42)|;||43.5|
-Orders in Substrate Km and Product Km fields are the same with those in Substrates and Products
+   
+Orders in Substrate Km and Product Km fields are the same with those in Substrates and Products; values in Substrate Km, Product Km and kcat fields are presented as geomean(lower bound, upper bound); defaults will be used for missing values
 >-b, --concBnds: concentration lower and upper bound (mM) for all metabolites, sep by ","   
 -w, --runWhich: which analysis to run, '1' for maximizing the minimal driving force, '2' for minimizing the totol enzyme protein cost, '12' for both   
 -i, --iniMetabs: optional, metabolites as initial substrates, sep by ",". By default, they will be detected automatically, sometimes they should be set explicitly, e.g. for cylic pathways   
