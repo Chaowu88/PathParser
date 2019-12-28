@@ -14,7 +14,7 @@ numpy1.16.1, pandas0.23.4, scipy1.2.1, sympy1.1.1, matplotlib3.0.3, seaborn0.8.1
 __main1.py__ performs MDF optimization and protein cost estimation with the following arguments:
    
 >-o, --outDir: output directory   
--r, --reactionFile: reaction file, required fields: Enzyme ID, Substrates, Products, Reversibility, Δ<sub>r</sub>G'<sup>m</sup> and Enzyme MW. See below as an example   
+-r, --reactionFile: reaction file, required fields: Enzyme ID, Substrates, Products, Reversibility, [Δ<sub>r</sub>G'<sup>m</sup>](http://equilibrator.weizmann.ac.il/static/classic_rxns/faq.html#what-does-the-m-in-rg-m-fg-m-and-e-m-mean) and Enzyme MW. See below as an example   
    
 |#Enzyme ID|Reversibility|Δ<sub>r</sub>G'<sup>m</sup> (kJ/mol)|Substrates|Products|Substrate Km (mM)|Product Km (mM)|kcat (1/s)|Enzyme MW (kDa)|
 |---|---|---|---|---|---|---|---|---|
@@ -47,7 +47,7 @@ python way\to\PathParser\main1.py -o way\to\PathParser\example\CBB -r way\to\Pat
 __main2.py__ performs robustness analysis with the following arguments:
     
 >-o, --outDir: see above  
--r, --reactionFile: reaction file, required fields: Enzyme ID, Substrates, Products, Reversibility, ΔrGm and Enzyme MW. See above as an example  
+-r, --reactionFile: reaction file, required fields: Enzyme ID, Substrates, Products, Reversibility, [Δ<sub>r</sub>G'<sup>m</sup>](http://equilibrator.weizmann.ac.il/static/classic_rxns/faq.html#what-does-the-m-in-rg-m-fg-m-and-e-m-mean) and Enzyme MW. See above as an example  
 -n, --nmodels: number of models in an ensemble  
 -b, --enzymeBnds: lower and upper bound of relative enzyme level, sep by ","  
 -d, --ifDump: whether to dump generated models, "yes" or "no"  
