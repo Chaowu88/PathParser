@@ -25,7 +25,11 @@ main1.py performs MDF optimization and protein cost estimation with the followin
 -h, --help: show help message and exit
    
 example:   
+    
 '''
 python way\to\PathParser\main1.py -o way\to\PathParser\example\CBB -r way\to\PathParser\example\CBB.tsv -eb ATP,ADP,Pi,NADH,NAD,NADPH,NADP -b 0.001,10 -w 12
 '''
+    
+    
+    
 
