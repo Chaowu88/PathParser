@@ -29,6 +29,7 @@ example:
 python way\to\PathParser\main1.py -o way\to\PathParser\example\CBB -r way\to\PathParser\example\CBB.tsv -eb ATP,ADP,Pi,NADH,NAD,NADPH,NADP -b 0.001,10 -w 12
 ```
 __main2.py__ performs robustness analysis with the following arguments:
+    
 -o, --outDir: output directory
 -r, --reactionFile: reaction file, required fields: Enzyme ID, Substrates, Products, Reversibility, ΔrGm and Enzyme MW. See below as an example
 -n, --nmodels: number of models in an ensemble
@@ -47,6 +48,7 @@ __main2.py__ performs robustness analysis with the following arguments:
 NOTE. 
 1 It is highly recommended to run this script in a high-performance computer.
 2 Robustness against enzyme perturbation can be evaluated in both relative and absolute manners, real flux values as well as metabolite concentrations and enzyme concentrations should be provided if the latter.
+    
 example:
 ```
 python way\to \PathParser\main2.py -o way\to\example\CBB -r example\example\CBB.tsv -f GAP -eb ATP,ADP,Pi,NADH,NAD,NADPH,NADP -eo ATP,ADP,Pi,NADH,NAD,NADPH,NADP -n 1000 -b 0.1,10 -d no -w 123 -p 30 -t no
