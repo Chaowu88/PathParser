@@ -11,7 +11,7 @@ PathParser was developed and tested using Python 3.6+ with the following package
    
 numpy1.16.1, pandas0.23.4, scipy1.2.1, sympy1.1.1, matplotlib3.0.3, seaborn0.8.1, openopt0.5625
 ## Usage
-main1.py performs MDF optimization and protein cost estimation with the following arguments:
+__main1.py__ performs MDF optimization and protein cost estimation with the following arguments:
    
 -o, --outDir: output directory
 -r, --reactionFile: reaction file, required fields: Enzyme ID, Substrates, Products, Reversibility, ΔrGm and Enzyme MW. See below as an example
@@ -28,7 +28,29 @@ example:
 ```
 python way\to\PathParser\main1.py -o way\to\PathParser\example\CBB -r way\to\PathParser\example\CBB.tsv -eb ATP,ADP,Pi,NADH,NAD,NADPH,NADP -b 0.001,10 -w 12
 ```
-
+__main2.py__ performs robustness analysis with the following arguments:
+-o, --outDir: output directory
+-r, --reactionFile: reaction file, required fields: Enzyme ID, Substrates, Products, Reversibility, ΔrGm and Enzyme MW. See below as an example
+-n, --nmodels: number of models in an ensemble
+-b, --enzymeBnds: lower and upper bound of relative enzyme level, sep by ","
+-d, --ifDump: whether to dump generated models, "yes" or "no"
+-p, --nprocess: number of processes to run simultaneously
+-w, --runWhich: which analysis to run, '1' for maximizing the minimal driving force, '2' for minimizing the totol enzyme protein cost, '12' for both
+-t, --ifReal: whether to use the real value of concentrations, Kms and Keqs, "yes" or "no"
+-a, --assignFlux: assign flux (mmol/gCDW/h) to some enzyme in the format "enzyme ID:value", then flux distribution of reference state will be calculated, required if --ifReal is "yes"
+-mc, --metabConcFile: file of metabolite concentrations (mM) in reference state, required if --ifReal is "yes"
+-ec, --enzConcFile: file of enzyme concentrations (mmol/gCDW) in reference state, required if --ifReal is "yes"
+-i, --iniMetabs: optional, metabolites as initial substrates, sep by ",". By default, they will be detected automatically, sometimes they should be set explicitly, e.g. for cylic pathways
+-f, --finMetabs: optional, metabolites as end products, sep by ",". By default, they will be detected automatically, sometimes they should be set explicitly, e.g. for cylic pathways
+-eb, --exBalMetabs: optional, metabolites excluded from mass balance, sep by ","
+-eo, --exOptMetabs: optional, metabolites excluded from optimization, sep by ","
+NOTE. 
+1 It is highly recommended to run this script in a high-performance computer.
+2 Robustness against enzyme perturbation can be evaluated in both relative and absolute manners, real flux values as well as metabolite concentrations and enzyme concentrations should be provided if the latter.
+example:
+```
+python way\to \PathParser\main2.py -o way\to\example\CBB -r example\example\CBB.tsv -f GAP -eb ATP,ADP,Pi,NADH,NAD,NADPH,NADP -eo ATP,ADP,Pi,NADH,NAD,NADPH,NADP -n 1000 -b 0.1,10 -d no -w 123 -p 30 -t no
+```
 
 
     
