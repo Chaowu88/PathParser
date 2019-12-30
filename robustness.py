@@ -7,6 +7,10 @@ __date__ = '10/21/2018'
 __version__ = '1.0'
 
 
+import numpy as np
+import pandas as pd
+
+
 
 
 def calculate_robustness_index(results, enzymesInner, nsteps):
@@ -22,8 +26,6 @@ def calculate_robustness_index(results, enzymesInner, nsteps):
 	robustIdx: ser, median of robustness index Si for each enzyme
 	'''
 	
-	import numpy as np
-	import pandas as pd
 	from scipy.stats import lognorm
 	
 	robustIdx = pd.Series(index = enzymesInner)
@@ -69,9 +71,6 @@ def calculate_system_failure_probability(results, enzymesInner, nsteps, nmodels,
 	Returns
 	failurePro: df, probability of system failure, enzyme in rows, enzyme level in columns
 	'''
-	
-	import numpy as np
-	import pandas as pd
 
 	ERange = np.concatenate((np.linspace(enzymeLB, 1, nsteps + 1), np.linspace(1, enzymeUB, nsteps + 1)[1:]))
 	
@@ -129,8 +128,6 @@ def flux_change_calculation_enzymeDOWN_worker(ifReal, enzyme, enzymes, Smetab2rn
 	fluxChangeEdown: dict
 	'''
 	
-	import numpy as np
-	import pandas as pd
 	from utilities import get_V
 	from common_rate_laws import v_expression
 	
@@ -187,8 +184,6 @@ def flux_change_calculation_enzymeUP_worker(ifReal, enzyme, enzymes, Smetab2rnx,
 	fluxChangeEup: dict
 	'''
 	
-	import numpy as np
-	import pandas as pd
 	from utilities import get_V
 	from common_rate_laws import v_expression
 	
@@ -245,8 +240,6 @@ def calculate_flux_fold_change(ifReal, Smetab2rnx, ensembleModels, Vss, results,
 	fluxChange: dict 
 	'''
 	
-	import numpy as np	
-	import pandas as pd
 	from multiprocessing import Pool
 	
 	ERangeDown = np.linspace(enzymeLB, 1, nsteps + 1)
@@ -302,9 +295,6 @@ def calculate_flux_control_index(fluxChange, enzymes, fluxBnds = (0.1, 10)):
 	Returns
 	ConIdx: df, enyzmes in rows
 	'''
-	
-	import numpy as np	
-	import pandas as pd
 	
 	ConIdx = pd.DataFrame(index = enzymes, columns = ['Down regulation', 'Up regulation'])   
 
