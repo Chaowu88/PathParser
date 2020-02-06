@@ -41,7 +41,7 @@ def save_driving_force_optimization_results(optConcs, optDeltaGs, refDeltaGs, ou
 	outDir: str, output directory
 	'''
 	
-	allDeltaGs = pd.concat([optDeltaGs, refDeltaGs], axis = 1)
+	allDeltaGs = pd.concat([refDeltaGs, optDeltaGs], axis = 1)
 	allDeltaGs.to_csv('%s/minimal_driving_forces.tsv' % outDir, sep = '\t', header = ["ΔG' at 1mM", "optimized ΔG'"], index_label = '#Reaction')
 	
 	optConcs.to_csv('%s/metabConc_MDF.tsv' % outDir, sep = '\t', header = ['Optimized Concentration (mM)'], index_label = '#Metabolite')
