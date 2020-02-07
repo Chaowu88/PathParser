@@ -13,10 +13,11 @@ import pandas as pd
 
 
 
-def optimize_minimal_driving_force(S, enzymeInfo, concLB, concUB):
+def optimize_minimal_driving_force(S, Vss, enzymeInfo, concLB, concUB):
 	'''
 	Parameters
 	S: df, stoichiometric matrix, metabolite in rows, reaction in columns. negative for substrates, positive for products
+	Vss: ser, net fluxes in steady state (including in and out fluxes)
 	enzymeInfo: df, reaction in rows
 	concLB: float, concentration lower bound (mM) for all metabolites
 	concUB: float, concentration upper bound (mM) for all metabolites
@@ -33,8 +34,11 @@ def optimize_minimal_driving_force(S, enzymeInfo, concLB, concUB):
 	f = np.zeros(S.shape[0] + 1)
 	f[0] = -1
 	
+	S = S * Vss[S.columns]
 	A = np.concatenate((np.ones((S.shape[1], 1)), R * T * S.T), axis = 1)
+	
 	b = -np.array([-R * T * np.log(item[0]) for item in enzymeInfo.loc[:, 'Keq']])
+	b = b * Vss[S.columns].values
 	
 	lb = [-np.inf] + [np.log(concLB)] * S.shape[0]
 	ub = [np.inf] + [np.log(concUB)] * S.shape[0]
