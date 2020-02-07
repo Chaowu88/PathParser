@@ -15,6 +15,7 @@ This script performs thermodynamics analysis: 1 maximizing the minimal driving f
 import argparse
 import os
 import re
+from parse_network import parse_network, get_full_stoichiometric_matrix, get_steady_state_net_fluxes
 
 
 
@@ -47,17 +48,28 @@ if __name__ == '__main__':
 
 	
 	## get stoichiometric matrix ---------------------------------------------------------------------------
-	from parse_network import parse_network
-		
 	print('\n\nParsing network')
 	print('.' * 50)	
 	
+	# get the stoichiometric matrix of a pathway
 	iniMetabs = iniMetabs.split(',') if iniMetabs else []
 	finMetabs = finMetabs.split(',') if finMetabs else []
 	exBalMetabs = exBalMetabs.split(',') if exBalMetabs else []
 	exOptMetabs = exOptMetabs.split(',') if exOptMetabs else []
 	
 	S4Bal, S4Opt, enzymeInfo, metabInfo = parse_network(reactionFile, iniMetabs, finMetabs, exBalMetabs, exOptMetabs)
+	
+	S4BalFull = get_full_stoichiometric_matrix(S4Bal, metabInfo)   # S4BalFull also includes input and output reactions of the pathway
+	
+	# get flux distribution in steady state
+	if assignFlux and not re.search(r'1', runWhich):
+		speEnz, speFlux = assignFlux.split(':')
+		speFlux = float(speFlux)
+		
+		Vss = get_steady_state_net_fluxes(S4BalFull, enzymeInfo, metabInfo, speEnz, speFlux)
+		
+	else:
+		Vss = get_steady_state_net_fluxes(S4BalFull, enzymeInfo, metabInfo)
 	
 	print('\nDone.')
 	
@@ -97,18 +109,6 @@ if __name__ == '__main__':
 		print('\n\nMinimizing enzyme cost')
 		print('.' * 50)
 		
-		# get steady state net fluxes
-		S4BalFull = get_full_stoichiometric_matrix(S4Bal, metabInfo)
-		
-		if assignFlux:
-			speEnz, speFlux = assignFlux.split(':')
-			speFlux = float(speFlux)
-			
-			Vss = get_steady_state_net_fluxes(S4BalFull, enzymeInfo, metabInfo, speEnz, speFlux)
-			
-		else:
-			Vss = get_steady_state_net_fluxes(S4BalFull, enzymeInfo, metabInfo)	
-			
 		# minimize enzyme cost
 		concLB, concUB = map(float, concBnds.split(','))
 			
