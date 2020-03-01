@@ -61,16 +61,6 @@ if __name__ == '__main__':
 	
 	S4BalFull = get_full_stoichiometric_matrix(S4Bal, metabInfo)   # S4BalFull also includes input and output reactions of the pathway
 	
-	# get flux distribution in steady state
-	if assignFlux and not re.search(r'1', runWhich):
-		speEnz, speFlux = assignFlux.split(':')
-		speFlux = float(speFlux)
-		
-		Vss = get_steady_state_net_fluxes(S4BalFull, enzymeInfo, metabInfo, speEnz, speFlux)
-		
-	else:
-		Vss = get_steady_state_net_fluxes(S4BalFull, enzymeInfo, metabInfo)
-	
 	print('\nDone.')
 	
 	
@@ -83,11 +73,14 @@ if __name__ == '__main__':
 			
 		print('\n\nMaximize minimal driving force')
 		print('.' * 50)
+		
+		# get flux distribution in steady state
+		Vss = get_steady_state_net_fluxes(S4BalFull, enzymeInfo, metabInfo)
 
 		# maximize minimal driving force
 		concLB, concUB = map(float, concBnds.split(','))
 			
-		optConcs, optDeltaGs, refDeltaGs = optimize_minimal_driving_force(S4Opt, enzymeInfo, concLB, concUB)
+		optConcs, optDeltaGs, refDeltaGs = optimize_minimal_driving_force(S4Opt, Vss, enzymeInfo, concLB, concUB)
 			
 		# output results
 		print_driving_force_optimization_results(optConcs, optDeltaGs, refDeltaGs)
@@ -108,6 +101,13 @@ if __name__ == '__main__':
 	
 		print('\n\nMinimizing enzyme cost')
 		print('.' * 50)
+		
+		# get flux distribution in steady state
+		if assignFlux:
+			Vss = get_steady_state_net_fluxes(S4BalFull, enzymeInfo, metabInfo, speEnz, speFlux)
+
+		else:
+			Vss = get_steady_state_net_fluxes(S4BalFull, enzymeInfo, metabInfo)
 		
 		# minimize enzyme cost
 		concLB, concUB = map(float, concBnds.split(','))
