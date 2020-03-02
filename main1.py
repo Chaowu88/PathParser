@@ -104,6 +104,9 @@ if __name__ == '__main__':
 		
 		# get flux distribution in steady state
 		if assignFlux:
+			speEnz, speFlux = assignFlux.split(':')
+			speFlux = float(speFlux)
+			
 			Vss = get_steady_state_net_fluxes(S4BalFull, enzymeInfo, metabInfo, speEnz, speFlux)
 
 		else:
