@@ -30,7 +30,7 @@ if __name__ == '__main__':
 	parser.add_argument('-eb', '--exBalMetabs', type = str, required = False, help = 'metabolites excluded from mass balance, sep by ","')
 	parser.add_argument('-eo', '--exOptMetabs', type = str, required = False, help = 'metabolites excluded from optimization, sep by ","')
 	parser.add_argument('-b', '--concBnds', type = str, required = True, help='concentration lower and upper bound (mM) for all metabolites, sep by ","')
-	parser.add_argument('-a', '--assignFlux', type = str, required = False, help='assign flux to some enzyme in the format "enzyme ID:value", then flux distribution will be calculated. If not assigned, influx to pathway will be set to 1, flux distribution can also be calculated. NOTE the calculated flux distribution is equivalent to occurance when computing protein cost')
+	parser.add_argument('-a', '--assignFlux', type = str, required = False, help='assign flux (no unit) to some enzyme in the format "enzyme ID:value", then flux distribution will be calculated. If not assigned, influx to pathway will be set to 1, flux distribution can also be calculated. NOTE the calculated flux distribution is equivalent to occurance when computing protein cost')
 	parser.add_argument('-w', '--runWhich', type = str, required = True, help = "which analysis to run, '1' for maximizing the minimal driving force, '2' for minimizing the totol enzyme protein cost, '12' for both")
 	args = parser.parse_args()
 	
@@ -61,6 +61,16 @@ if __name__ == '__main__':
 	
 	S4BalFull = get_full_stoichiometric_matrix(S4Bal, metabInfo)   # S4BalFull also includes input and output reactions of the pathway
 	
+	# get flux distribution in steady state
+	if assignFlux:
+		speEnz, speFlux = assignFlux.split(':')
+		speFlux = float(speFlux)
+
+		Vss = get_steady_state_net_fluxes(S4BalFull, enzymeInfo, metabInfo, speEnz, speFlux)
+
+	else:
+		Vss = get_steady_state_net_fluxes(S4BalFull, enzymeInfo, metabInfo)
+			
 	print('\nDone.')
 	
 	
@@ -74,9 +84,6 @@ if __name__ == '__main__':
 		print('\n\nMaximize minimal driving force')
 		print('.' * 50)
 		
-		# get flux distribution in steady state
-		Vss = get_steady_state_net_fluxes(S4BalFull, enzymeInfo, metabInfo)
-
 		# maximize minimal driving force
 		concLB, concUB = map(float, concBnds.split(','))
 			
@@ -101,16 +108,6 @@ if __name__ == '__main__':
 	
 		print('\n\nMinimizing enzyme cost')
 		print('.' * 50)
-		
-		# get flux distribution in steady state
-		if assignFlux:
-			speEnz, speFlux = assignFlux.split(':')
-			speFlux = float(speFlux)
-			
-			Vss = get_steady_state_net_fluxes(S4BalFull, enzymeInfo, metabInfo, speEnz, speFlux)
-
-		else:
-			Vss = get_steady_state_net_fluxes(S4BalFull, enzymeInfo, metabInfo)
 		
 		# minimize enzyme cost
 		concLB, concUB = map(float, concBnds.split(','))
