@@ -39,7 +39,7 @@ Orders in Substrate Km and Product Km fields are the same with those in Substrat
 -f, --finMetabs: optional, metabolites as end products, sep by ",". By default, they will be detected automatically, sometimes they should be set explicitly, e.g. for cylic pathways  
 -eb, --exBalMetabs: optional, metabolites excluded from mass balance, sep by ","  
 -eo, --exOptMetabs: optional, metabolites excluded from optimization, sep by ","  
--a, --assignFlux: optional, assign flux to some enzyme in the format "enzyme ID:value", then flux distribution will be calculated. By default, influx to pathway will be set to 1  
+-a, --assignFlux: optional, assign flux to some enzyme in the format "enzyme ID:value", then flux distribution will be calculated. By default, influx to pathway will be set to 1. NOTE the calculated flux distribution is equivalent to occurance not the real flux  
 -h, --help: show help message and exit  
    
 example:   
