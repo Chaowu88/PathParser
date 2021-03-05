@@ -66,7 +66,7 @@ __main2.py__ performs robustness analysis with the following arguments:
  
 __NOTE.__   
   
-1 It is highly recommended to run this script in a high-performance computer.  
+1 It is highly recommended to run this script in a HPC cluster.  
 2 Robustness against enzyme perturbation can be evaluated in both relative and absolute manners, real flux values as well as metabolite concentrations and enzyme concentrations should be provided if the latter.  
     
 example:
