@@ -71,7 +71,7 @@ __NOTE.__
     
 example:
 ```
-python way\to \PathParser\main2.py -o way\to\example\CBB -r example\example\CBB.tsv -f GAP -eb ATP,ADP,Pi,NADH,NAD,NADPH,NADP -eo ATP,ADP,Pi,NADH,NAD,NADPH,NADP -n 1000 -b 0.1,10 -d no -w 123 -p 30 -t no
+python way\to\PathParser\main2.py -o way\to\example\CBB -r example\example\CBB.tsv -f GAP -eb ATP,ADP,Pi,NADH,NAD,NADPH,NADP -eo ATP,ADP,Pi,NADH,NAD,NADPH,NADP -n 1000 -b 0.1,10 -d no -w 123 -p 30 -t no
 ```
 ## License
 PathParser is released under a GNU General Public [License](https://github.com/Chaowu88/PathParser/blob/master/LICENSE).
