@@ -164,10 +164,6 @@ def simulation_worker(i, ensembleModel, S, Smetab2rnx, E, Eini, X, Xini, enzymes
 	from constants import eigThreshold
 	from utilities import get_Jacobian, get_dVdE, solve_dXdE, get_lambdify_function
 	from common_rate_laws import v_expression
-	import platform
-	if platform.system() == 'Linux':
-		import os
-		os.sched_setaffinity(os.getpid(), range(os.cpu_count()))
 		
 	print('\nprocessing model %s ...' % (i + 1))
 	
