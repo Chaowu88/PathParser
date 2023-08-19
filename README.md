@@ -76,7 +76,7 @@ python path\to\PathParser\main2.py -o path\to\example\CBB -r example\example\CBB
 ## License
 PathParser is released under a GNU General Public [License](https://github.com/Chaowu88/PathParser/blob/master/LICENSE).
 ## Citation
-Chao Wu, Huaiguang Jiang, Isha Kalra, Xin Wang, Melissa Cano, PinChing Maness, Jianping Yu, Wei Xiong. A generalized computational framework to streamline thermodynamics and kinetics analysis of metabolic pathways. Metabolic Engineering. 2019 Aug 8. pii: S1096-7176(19)30258-7.   
+Wu et al.. A generalized computational framework to streamline thermodynamics and kinetics analysis of metabolic pathways. Metabolic Engineering. 2019 Aug 8. pii: S1096-7176(19)30258-7.   
    
 https://www.sciencedirect.com/science/article/pii/S1096717619302587
 
