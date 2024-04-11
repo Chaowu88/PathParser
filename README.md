@@ -7,7 +7,7 @@ __2 Protein cost estimation.__ The smallest enzyme investment will be assessed b
    
 __3 Robustness analysis.__ Specifically, an ensemble of models is generated to simulate the system response to enzyme perturbation based on bifurcation theory and a continuation method. Probability of system failure and flux fold change against enzyme perturbation are estimated as well as a flux control index.   
 ## Dependencies 
-PathParser was developed and tested using Python 3.6+ with the following packages:   
+PathParser was developed and tested using Python 3.6 with the following packages:   
    
 numpy 1.16.1, pandas 0.23.4, scipy 1.2.1, sympy 1.1.1, matplotlib 3.0.3, seaborn 0.8.1, openopt 0.5625, pillow 6.0.0, xlrd 1.2.0, cvxopt and openpyxl
 ## Usage
